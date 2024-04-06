@@ -1,22 +1,162 @@
 <!DOCTYPE html>
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="estilos.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="funciones.js"></script>
     <title>Libros</title>
 
 
 </head>
+
 <body>
-
-
     <script>
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             pintarNavBar();
-        
         });
-        
-        </script>
+    </script>
+    <div id="navbar"></div>
+
+    <div class="container-fluid" style="margin-top: 10px;">
+        <h1>Tienda de Libros</h1>
+        <div class="row">
+            <div class="col-md-3" w>
+                <h2>Filtros</h2>
+                <form id="filters">
+                    <div class="form-group">
+                        <label for="genre">Género</label>
+                        <select class="form-control" id="genre">
+                            <option value="">Todos</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="terror">Terror</option>
+                            <option value="infantil">Infantil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Precio Maximo</label>
+                        <input type="text" class="form-control" id="price">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+                </form>
+            </div>
+            <div class="col-md-9" style="position: relative;">
+                <h2>Libros</h2>
+                <button class="shopping-cart" onclick="irAlCarro();">🛒</button>
+                <div id="bookList">
+                    <!-- Género 1 -->
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="El principito">
+                        <h3>El principito</h3>
+                        <p>Género: Infantil</p>
+                        <p>Precio: $20</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="Matilda">
+                        <h3>Matilda</h3>
+                        <p>Género: Infantil</p>
+                        <p>Precio: $10</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="El monstruo de colores">
+                        <h3>El monstruo de colores</h3>
+                        <p>Género: Infantil</p>
+                        <p>Precio: $15</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="Papelucho">
+                        <h3>Papelucho</h3>
+                        <p>Género: Infantil</p>
+                        <p>Precio: $20</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="¿A qué sabe la luna?">
+                        <h3>¿A qué sabe la luna?</h3>
+                        <p>Género: Infantil</p>
+                        <p>Precio: $25</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <!-- Género 2 -->
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="La chica gris">
+                        <h3>La chica gris</h3>
+                        <p>Género: Terror</p>
+                        <p>Precio: $20</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="Nigromante">
+                        <h3>Nigromante</h3>
+                        <p>Género: Terror</p>
+                        <p>Precio: $10</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="La casa de las sombras">
+                        <h3>La casa de las sombras</h3>
+                        <p>Género: Terror</p>
+                        <p>Precio: $15</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="El exorcismo de mi mejor amiga">
+                        <h3>El exorcismo de mi mejor amiga</h3>
+                        <p>Género: Terror</p>
+                        <p>Precio: $20</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="Un legado de sangre">
+                        <h3>Un legado de sangre</h3>
+                        <p>Género: Terror</p>
+                        <p>Precio: $25</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <!-- Género 3 -->
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="El hogar de Miss Peregrine para niños peculiares">
+                        <h3>El hogar de Miss Peregrine para niños peculiares</h3>
+                        <p>Género: Fantasia</p>
+                        <p>Precio: $20</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="Juego de Tronos">
+                        <h3>Juego de Tronos</h3>
+                        <p>Género: Fantasia</p>
+                        <p>Precio: $10</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="El nombre del viento">
+                        <h3>El nombre del viento</h3>
+                        <p>Género: Fantasia</p>
+                        <p>Precio: $15</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="El color de la magia">
+                        <h3>El color de la magia</h3>
+                        <p>Género: Fantasia</p>
+                        <p>Precio: $20</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                    <div class="book">
+                        <img src="ImagenLibros.png" alt="El señor de los anillos">
+                        <h3>El señor de los anillos</h3>
+                        <p>Género: Fantasia</p>
+                        <p>Precio: $25</p>
+                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
