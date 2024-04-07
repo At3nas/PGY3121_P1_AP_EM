@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="estilos.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="funciones.js"></script>
     <title>Libros</title>
 
@@ -29,8 +31,8 @@
                 <form id="filters">
                     <div class="form-group">
                         <label for="genre">Género</label>
-                        <select class="form-control" id="genre">
-                            <option value="">Todos</option>
+                        <select class="form-control" id="generoLibro">
+                            <option value="0">Todos</option>
                             <option value="fantasia">Fantasia</option>
                             <option value="terror">Terror</option>
                             <option value="infantil">Infantil</option>
@@ -38,125 +40,195 @@
                     </div>
                     <div class="form-group">
                         <label for="price">Precio Maximo</label>
-                        <input type="text" class="form-control" id="price">
+                        <input type="text" class="form-control" id="precioLibro">
                     </div>
-                    <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+
+                    <div class="form-group">
+                        <label for="price">Nombre</label>
+                        <input type="text" class="form-control" id="nombreLibro">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="FiltrarLibros();">Aplicar Filtros</button>
                 </form>
             </div>
-            <div class="col-md-9" style="position: relative;">
+                     <div class="col-md-9" id="listaLibros" style="position: relative;">
                 <h2>Libros</h2>
-                <button class="shopping-cart" onclick="irAlCarro();">🛒</button>
+                <button class="shopping-cart" onclick="irAlCarro()">🛒</button>
                 <div id="bookList">
                     <!-- Género 1 -->
-                    <div class="book">
+                    <div class="book" data-genero="Infantil" data-precio="20" data-nombre="El principito">
                         <img src="ImagenLibros.png" alt="El principito">
                         <h3>El principito</h3>
                         <p>Género: Infantil</p>
                         <p>Precio: $20</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Infantil" data-precio="10" data-nombre="Matilda">
                         <img src="ImagenLibros.png" alt="Matilda">
                         <h3>Matilda</h3>
                         <p>Género: Infantil</p>
                         <p>Precio: $10</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Infantil" data-precio="15" data-nombre="El monstruo de colores">
                         <img src="ImagenLibros.png" alt="El monstruo de colores">
                         <h3>El monstruo de colores</h3>
                         <p>Género: Infantil</p>
                         <p>Precio: $15</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Infantil" data-precio="20" data-nombre="Papelucho">
                         <img src="ImagenLibros.png" alt="Papelucho">
                         <h3>Papelucho</h3>
                         <p>Género: Infantil</p>
                         <p>Precio: $20</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Infantil" data-precio="25" data-nombre="¿A qué sabe la luna?">
                         <img src="ImagenLibros.png" alt="¿A qué sabe la luna?">
                         <h3>¿A qué sabe la luna?</h3>
                         <p>Género: Infantil</p>
                         <p>Precio: $25</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
                     <!-- Género 2 -->
-                    <div class="book">
+
+
+                    <div class="book" data-genero="Terror" data-precio="20" data-nombre="La chica gris">
                         <img src="ImagenLibros.png" alt="La chica gris">
                         <h3>La chica gris</h3>
                         <p>Género: Terror</p>
                         <p>Precio: $20</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Terror" data-precio="10" data-nombre="Nigromante">
                         <img src="ImagenLibros.png" alt="Nigromante">
                         <h3>Nigromante</h3>
                         <p>Género: Terror</p>
                         <p>Precio: $10</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Terror" data-precio="15" data-nombre="La casa de las sombras">
                         <img src="ImagenLibros.png" alt="La casa de las sombras">
                         <h3>La casa de las sombras</h3>
                         <p>Género: Terror</p>
                         <p>Precio: $15</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Terror" data-precio="20" data-nombre="El exorcismo de mi mejor amiga">
                         <img src="ImagenLibros.png" alt="El exorcismo de mi mejor amiga">
                         <h3>El exorcismo de mi mejor amiga</h3>
                         <p>Género: Terror</p>
                         <p>Precio: $20</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Terror" data-precio="25" data-nombre="Un legado de sangre">
                         <img src="ImagenLibros.png" alt="Un legado de sangre">
                         <h3>Un legado de sangre</h3>
                         <p>Género: Terror</p>
                         <p>Precio: $25</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
                     <!-- Género 3 -->
-                    <div class="book">
+
+
+                    <div class="book" data-genero="Fantasia" data-precio="20" data-nombre="El hogar de Miss Peregrine para niños peculiares">
                         <img src="ImagenLibros.png" alt="El hogar de Miss Peregrine para niños peculiares">
                         <h3>El hogar de Miss Peregrine para niños peculiares</h3>
                         <p>Género: Fantasia</p>
                         <p>Precio: $20</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Fantasia" data-precio="10" data-nombre="Juego de Tronos">
                         <img src="ImagenLibros.png" alt="Juego de Tronos">
                         <h3>Juego de Tronos</h3>
                         <p>Género: Fantasia</p>
                         <p>Precio: $10</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Fantasia" data-precio="15" data-nombre="El nombre del viento">
                         <img src="ImagenLibros.png" alt="El nombre del viento">
                         <h3>El nombre del viento</h3>
                         <p>Género: Fantasia</p>
                         <p>Precio: $15</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Fantasia" data-precio="20" data-nombre="El color de la magia">
                         <img src="ImagenLibros.png" alt="El color de la magia">
                         <h3>El color de la magia</h3>
                         <p>Género: Fantasia</p>
                         <p>Precio: $20</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
-                    <div class="book">
+                    <div class="book" data-genero="Fantasia" data-precio="25" data-nombre="El señor de los anillos">
                         <img src="ImagenLibros.png" alt="El señor de los anillos">
                         <h3>El señor de los anillos</h3>
                         <p>Género: Fantasia</p>
                         <p>Precio: $25</p>
-                        <button class="add-to-cart" onclick="anadirAlCarro();">Añadir al carro</button>
+                        <input type="number" class="quantity-input cantidad">
+                        <button class="add-to-cart" onclick="anadirAlCarro(this);">Añadir al carro</button>
                     </div>
+
                 </div>
+            </div>
+
+            <div class="col-md-9" id="Existencias" style="position: relative; display:none;">
+                <h2>No existen libros con estos filtros</h2>                
             </div>
         </div>
     </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-carro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Carro de Compra</h5>
+        </div>
+        <div class="modal-body">
+            <div id="existeLibro"  style="display: none;">
+                <h3>No existen libros en el carro</h3>
+            </div>
+          <table class="table" id="tablaLibros" style="display: none;">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+          <div id="valorTotal"  style="display: none;">
+            <h3 id="textoValor">Total a pagar: </h3>
+        </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="ComprarLibros();">Comprar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    
 </body>
