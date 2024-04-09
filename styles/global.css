@@ -1,0 +1,45 @@
+/* ESTILOS CSS GLOBALES */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', 'Times New Roman', sans-serif;
+  font-weight: 700;
+  color: #027F94;
+}
+
+b {
+  color: #027F94;
+}
+
+
+/* FOOTER */
+footer {
+  padding: 48px !important;
+  display: flex;
+  gap: 60px;
+  width: 100vw;
+  background-color: #027F94;
+  color: white;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+.footer-title {
+  font-family: 'Cormorant Garamond', 'Times New Roman', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+footer div.logo-background {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 24px;
+  border-radius: 100%;
+}
