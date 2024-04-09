@@ -32,7 +32,7 @@ footer ul li {
   font-size: 24px;
 }
 
-footer div.logo-background {
+div.logo-background {
   width: 140px;
   height: 140px;
   display: flex;

@@ -1,0 +1,17 @@
+nav.navbar {
+  padding: 24px;
+  background-color: #027F94;
+}
+
+div.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-collapse a {
+  color: white;
+}
+
+.navbar-collapse a:hover {
+  color: rgba(255, 255, 255, 0.639);
+}
