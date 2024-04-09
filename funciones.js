@@ -5,11 +5,13 @@ function irAlCarro() {
     if (rowCount == 0) {
         $('#tablaLibros').hide();
         $('#valorTotal').hide();
+        $('#btnComprar').hide();
 
         $('#existeLibro').show();
     }
     else {
         $('#valorTotal').show();
+        $('#btnComprar').show();
 
         $('#existeLibro').hide();
         $('#tablaLibros').show();
@@ -54,6 +56,8 @@ function EliminarFila(element) {
         $('#tablaLibros').hide();
         $('#valorTotal').hide();
         $('#existeLibro').show();
+        $('#btnComprar').hide();
+        
     } else {
 
         actualizarPrecio()
@@ -128,19 +132,50 @@ function IniciarSesion() {
     var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
     if (email === '' || contrasena === '') {
-        msg = msg + 'Por favor, rellene todos los campos.';
+        msg = msg + '\nPor favor, rellene todos los campos.';
     }
-    else if (contrasena.length < 8) {
-        if (!regex.test(email)) {
-            msg = msg + 'Por favor, introduzca un correo electrónico válido.';
-        }
+    if (!regex.test(email)) {
+        msg = msg + '\nPor favor, introduzca un correo electrónico válido.';
     }
+    
     if (msg != '') {
         alert(msg);
         return;
     }
 
     alert('Inicio de sesión exitoso');
+    window.location.href = 'index.html';
+
+}
+
+
+
+function Registrarse() {
+    var msg = '';
+    var contrasena = $('#password').val();
+    var contrasena2= $('#passwordConfirm').val();
+    var email = $('#email').val();
+    var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    if (email === '' || contrasena === '' || contrasena2 === '') {
+        msg = msg + '\nPor favor, rellene todos los campos.';
+    }
+    if (!regex.test(email)) {
+        msg = msg + '\nPor favor, introduzca un correo electrónico válido.';
+    }
+    if (contrasena != contrasena2) {
+        msg = msg + '\nLas contraseñas deben coincidir';
+    }
+    if ( $('#terms').is(':checked') == false) {
+        msg = msg + '\nDebe aceptar los términos y condiciones';
+    }
+    
+    if (msg != '') {
+        alert(msg);
+        return;
+    }
+
+    alert('Registro exitoso');
     window.location.href = 'index.html';
 
 }
